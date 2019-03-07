@@ -61,6 +61,33 @@ def submit_vcode(request):
     else:
         return render_json(code=errors.VCODE_ERR)
 
+'''
+http 过程
+1.wsgi   web  serverce gateway interface 将请求报文封装成HttpRequest对象
+---------------------》 process_request（切面）
+2.URL   映射
+——————————————》process_view（切面）
+3.执行view函数
+4.获取参数
+5.执行逻辑处理 进行数据库 缓存等
+——————————————————————》process_template（切面）
+6.模板渲染
+7.封装HttpResponse对象
+——————————————————————————》process_response处理响应之前（切面）
+8.将HttpResponse 对象转化为HTTP响应报文
+9.将报文发送到浏览器
+
+
+中间件 面向切面
+process_request
+process_view
+process_template
+process_exception 报错产生的切面
+process_response
+
+
+
+'''
 
 
 
