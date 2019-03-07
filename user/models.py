@@ -35,6 +35,14 @@ class User(models.Model):
         return (today-birthday).days//365
 
 
+    @property
+    def profile(self):
+        #用户个人资料
+        if not hasattr(self,'_profile'):
+            self._profile, _= Profile.objects.get_or_create(id=self.id)
+        return self._profile
+
+
 
     def to_dict(self):
         return {
@@ -51,6 +59,35 @@ class User(models.Model):
 
 
 
+class Profile(models.Model):
+    SEX = (
+        ('male', '男性'),
+        ('female', '女性'),
+    )
+
+    LOCATION = (
+        ('bj', '北京'),
+        ('sh', '上海'),
+        ('gz', '广州'),
+        ('sz', '深圳'),
+        ('cd', '成都'),
+        ('xa', '西安'),
+        ('wh', '武汉'),
+    )
+
+    location = models.CharField(max_length=16, choices=LOCATION,verbose_name='目标城市')
+
+    min_distance=models.IntegerField(default=1,verbose_name='最小查找范围')
+    max_distance=models.IntegerField(default=10,verbose_name='最大查找范围')
+
+    min_dating_age=models.IntegerField(default=18,verbose_name='最小交友年龄')
+    max_dating_age=models.IntegerField(default=50,verbose_name='最大交友年龄')
+
+    dating_sex=models.CharField(max_length=8,choices=SEX,verbose_name='匹配的性别')
+
+    vibration=models.BooleanField(default=True,verbose_name='开启震动')
+    only_matche=models.BooleanField(default=True,verbose_name='不让为匹配的人看到我的相册')
+    auto_play=models.BooleanField(default=True,verbose_name='自动播放视频')
 
 
 
