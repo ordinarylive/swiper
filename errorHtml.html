@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="robots" content="NONE,NOARCHIVE">
-        <title>OperationalError at /api/user/submit_vcode</title>
+        <title>AttributeError at /api/user/get_profile</title>
         <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -123,16 +123,16 @@
     </head>
     <body>
         <div id="summary">
-            <h1>OperationalError at /api/user/submit_vcode</h1>
-            <pre class="exception_value">no such column: user_user.nickname</pre>
+            <h1>AttributeError at /api/user/get_profile</h1>
+            <pre class="exception_value">&#39;Profile&#39; object has no attribute &#39;to_dict&#39;</pre>
             <table class="meta">
                 <tr>
                     <th>Request Method:</th>
-                    <td>POST</td>
+                    <td>GET</td>
                 </tr>
                 <tr>
                     <th>Request URL:</th>
-                    <td>http://127.0.0.1:8000/api/user/submit_vcode?phonenum=18637529170</td>
+                    <td>http://127.0.0.1:8000/api/user/get_profile</td>
                 </tr>
                 <tr>
                     <th>Django Version:</th>
@@ -140,17 +140,17 @@
                 </tr>
                 <tr>
                     <th>Exception Type:</th>
-                    <td>OperationalError</td>
+                    <td>AttributeError</td>
                 </tr>
                 <tr>
                     <th>Exception Value:</th>
                     <td>
-                        <pre>no such column: user_user.nickname</pre>
+                        <pre>&#39;Profile&#39; object has no attribute &#39;to_dict&#39;</pre>
                     </td>
                 </tr>
                 <tr>
                     <th>Exception Location:</th>
-                    <td>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\sqlite3\base.py in execute, line 328</td>
+                    <td>F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py in get_profile, line 96</td>
                 </tr>
                 <tr>
                     <th>Python Executable:</th>
@@ -176,7 +176,7 @@
                 </tr>
                 <tr>
                     <th>Server time:</th>
-                    <td>星期四, 7 三月 2019 18:17:38 +0800</td>
+                    <td>星期五, 8 三月 2019 12:27:48 +0800</td>
                 </tr>
             </table>
         </div>
@@ -190,259 +190,66 @@
             <div id="browserTraceback">
                 <ul class="traceback">
                     <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86393992">
-                            <ol start="57" class="pre-context" id="pre86393992">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>    def execute(self, sql, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            if params is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>                return self.cursor.execute(sql)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            else:</pre>
-                                </li>
-                            </ol>
-                            <ol start="64" class="context-line">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>
-                return self.cursor.execute(sql, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='65' class="post-context" id="post86393992">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>    def executemany(self, sql, param_list):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            return self.cursor.executemany(sql, param_list)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86393992')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86393992">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = %s AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;%s)&#39;)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\sqlite3\base.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86393928">
-                            <ol start="321" class="pre-context" id="pre86393928">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    This fixes it -- but note that if you want to use a literal &quot;%s&quot; in a query,</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    you&#39;ll need to use &quot;%%s&quot;.</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def execute(self, query, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        if params is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>            return Database.Cursor.execute(self, query)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        query = self.convert_query(query)</pre>
-                                </li>
-                            </ol>
-                            <ol start="328" class="context-line">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>
-        return Database.Cursor.execute(self, query, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='329' class="post-context" id="post86393928">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def executemany(self, query, param_list):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        query = self.convert_query(query)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        return Database.Cursor.executemany(self, query, param_list)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def convert_query(self, query):</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86393928')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86393928">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>query</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = ? AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;?)&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000000000521C798&gt;</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li>
-                        <h3>
-
-            The above exception (no such column: user_user.nickname) was the direct cause of the following exception:
-
-        </h3>
-                    </li>
-                    <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\exception.py</code> in
                         <code>inner</code>
-                        <div class="context" id="c86395016">
-                            <ol start="34" class="pre-context" id="pre86395016">
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                        <div class="context" id="c87120392">
+                            <ol start="34" class="pre-context" id="pre87120392">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    This decorator is automatically applied to all middleware to ensure that</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    no middleware leaks an exception and that the next middleware in the stack</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    can rely on getting a response instead of an exception.</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    &quot;&quot;&quot;</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    @wraps(get_response, assigned=available_attrs(get_response))</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    def inner(request):</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>        try:</pre>
                                 </li>
                             </ol>
                             <ol start="41" class="context-line">
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>
             response = get_response(request)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='42' class="post-context" id="post86395016">
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                            <ol start='42' class="post-context" id="post87120392">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>        except Exception as exc:</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>            response = response_for_exception(request, exc)</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>        return response</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre>    return inner</pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86395016', 'post86395016')">
+                                <li onclick="toggle('pre87120392', 'post87120392')">
                                     <pre></pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86395016')">
+                            <a href="#" onclick="return varToggle(this, '87120392')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86395016">
+                        <table class="vars" id="v87120392">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -453,7 +260,7 @@
                                 <tr>
                                     <td>exc</td>
                                     <td class="code">
-                                        <pre>OperationalError(&#39;no such column: user_user.nickname&#39;,)</pre>
+                                        <pre>AttributeError(&quot;&#39;Profile&#39; object has no attribute &#39;to_dict&#39;&quot;,)</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -465,7 +272,7 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: POST &#39;/api/user/submit_vcode?phonenum=18637529170&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -474,64 +281,64 @@
                     <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py</code> in
                         <code>_get_response</code>
-                        <div class="context" id="c86394952">
-                            <ol start="180" class="pre-context" id="pre86394952">
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                        <div class="context" id="c86110472">
+                            <ol start="180" class="pre-context" id="pre86110472">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>                break</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>            wrapped_callback = self.make_view_atomic(callback)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>            try:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>            except Exception as e:</pre>
                                 </li>
                             </ol>
                             <ol start="187" class="context-line">
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>
                 response = self.process_exception_by_middleware(e, request)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='188' class="post-context" id="post86394952">
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                            <ol start='188' class="post-context" id="post86110472">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>        # Complain if the view returned None (a common error).</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>            if isinstance(callback, types.FunctionType):    # FBV</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>                view_name = callback.__name__</pre>
                                 </li>
-                                <li onclick="toggle('pre86394952', 'post86394952')">
+                                <li onclick="toggle('pre86110472', 'post86110472')">
                                     <pre>            else:                                           # CBV</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394952')">
+                            <a href="#" onclick="return varToggle(this, '86110472')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86394952">
+                        <table class="vars" id="v86110472">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -542,7 +349,7 @@
                                 <tr>
                                     <td>callback</td>
                                     <td class="code">
-                                        <pre>&lt;function submit_vcode at 0x00000000050D5730&gt;</pre>
+                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -560,7 +367,7 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: POST &#39;/api/user/submit_vcode?phonenum=18637529170&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -572,7 +379,7 @@
                                 <tr>
                                     <td>resolver_match</td>
                                     <td class="code">
-                                        <pre>ResolverMatch(func=user.api.submit_vcode, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
+                                        <pre>ResolverMatch(func=user.api.get_profile, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -590,7 +397,7 @@
                                 <tr>
                                     <td>wrapped_callback</td>
                                     <td class="code">
-                                        <pre>&lt;function submit_vcode at 0x00000000050D5730&gt;</pre>
+                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -599,64 +406,64 @@
                     <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py</code> in
                         <code>_get_response</code>
-                        <div class="context" id="c86394888">
-                            <ol start="178" class="pre-context" id="pre86394888">
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                        <div class="context" id="c86113160">
+                            <ol start="178" class="pre-context" id="pre86113160">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            response = middleware_method(request, callback, callback_args, callback_kwargs)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            if response:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>                break</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            wrapped_callback = self.make_view_atomic(callback)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            try:</pre>
                                 </li>
                             </ol>
                             <ol start="185" class="context-line">
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>
                 response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='186' class="post-context" id="post86394888">
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                            <ol start='186' class="post-context" id="post86113160">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            except Exception as e:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>                response = self.process_exception_by_middleware(e, request)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>        # Complain if the view returned None (a common error).</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86394888', 'post86394888')">
+                                <li onclick="toggle('pre86113160', 'post86113160')">
                                     <pre>            if isinstance(callback, types.FunctionType):    # FBV</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394888')">
+                            <a href="#" onclick="return varToggle(this, '86113160')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86394888">
+                        <table class="vars" id="v86113160">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -667,7 +474,7 @@
                                 <tr>
                                     <td>callback</td>
                                     <td class="code">
-                                        <pre>&lt;function submit_vcode at 0x00000000050D5730&gt;</pre>
+                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -685,7 +492,7 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: POST &#39;/api/user/submit_vcode?phonenum=18637529170&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -697,7 +504,7 @@
                                 <tr>
                                     <td>resolver_match</td>
                                     <td class="code">
-                                        <pre>ResolverMatch(func=user.api.submit_vcode, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
+                                        <pre>ResolverMatch(func=user.api.get_profile, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -715,7 +522,7 @@
                                 <tr>
                                     <td>wrapped_callback</td>
                                     <td class="code">
-                                        <pre>&lt;function submit_vcode at 0x00000000050D5730&gt;</pre>
+                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -723,65 +530,65 @@
                     </li>
                     <li class="frame user">
                         <code>F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py</code> in
-                        <code>submit_vcode</code>
-                        <div class="context" id="c86394824">
-                            <ol start="50" class="pre-context" id="pre86394824">
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>    phone=request.POST.get(&#39;phonenum&#39;)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>    vcode=request.POST.get(&#39;vcode&#39;)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
+                        <code>get_profile</code>
+                        <div class="context" id="c82318600">
+                            <ol start="89" class="pre-context" id="pre82318600">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>&#39;&#39;&#39;</pre>
+                                </li>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>    cached_vcode=cache.get(keys.VCODE%phone)</pre>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>    if vcode == cached_vcode:</pre>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>#获取个人资料接口</pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>        user,_= User.objects.get_or_create(phonenum=phone,</pre>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>def get_profile(request):</pre>
+                                </li>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>    user=request.user</pre>
                                 </li>
                             </ol>
-                            <ol start="57" class="context-line">
-                                <li onclick="toggle('pre86394824', 'post86394824')">
+                            <ol start="96" class="context-line">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
                                     <pre>
-                                           nickname=phone)</pre>
+    profile_data=user.profile.to_dict(&#39;vibration&#39;,&#39;only_matche&#39;,&#39;auto_play&#39;)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='58' class="post-context" id="post86394824">
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>        request.session[&#39;uid&#39;]=user.id</pre>
+                            <ol start='97' class="post-context" id="post82318600">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>    return render_json(profile_data)</pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>        return render_json(data=user.to_dict())</pre>
-                                </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>    else:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
-                                    <pre>        return render_json(code=errors.VCODE_ERR)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394824', 'post86394824')">
+                                <li onclick="toggle('pre82318600', 'post82318600')">
                                     <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>#修改个人资料接口</pre>
+                                </li>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>def set_profile(request):</pre>
+                                </li>
+                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                    <pre>    form = ProfileForm(request.POST)</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394824')">
+                            <a href="#" onclick="return varToggle(this, '82318600')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86394824">
+                        <table class="vars" id="v82318600">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -789,1388 +596,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>cached_vcode</td>
-                                    <td class="code">
-                                        <pre>&#39;0290&#39;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>phone</td>
-                                    <td class="code">
-                                        <pre>&#39;18637529170&#39;</pre>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: POST &#39;/api/user/submit_vcode?phonenum=18637529170&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>vcode</td>
+                                    <td>user</td>
                                     <td class="code">
-                                        <pre>&#39;0290&#39;</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\manager.py</code> in
-                        <code>manager_method</code>
-                        <div class="context" id="c86394760">
-                            <ol start="78" class="pre-context" id="pre86394760">
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>    def check(self, **kwargs):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>        return []</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>    @classmethod</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>    def _get_queryset_methods(cls, queryset_class):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>        def create_method(name, method):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>            def manager_method(self, *args, **kwargs):</pre>
-                                </li>
-                            </ol>
-                            <ol start="85" class="context-line">
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>
-                return getattr(self.get_queryset(), name)(*args, **kwargs)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='86' class="post-context" id="post86394760">
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>            manager_method.__name__ = method.__name__</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>            manager_method.__doc__ = method.__doc__</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>            return manager_method</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>        new_methods = {}</pre>
-                                </li>
-                                <li onclick="toggle('pre86394760', 'post86394760')">
-                                    <pre>        # Refs http://bugs.python.org/issue1785.</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394760')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394760">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>args</td>
-                                    <td class="code">
-                                        <pre>()</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>kwargs</td>
-                                    <td class="code">
-                                        <pre>{&#39;nickname&#39;: &#39;18637529170&#39;, &#39;phonenum&#39;: &#39;18637529170&#39;}</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>name</td>
-                                    <td class="code">
-                                        <pre>&#39;get_or_create&#39;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.models.manager.Manager object at 0x0000000004201EB8&gt;</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py</code> in
-                        <code>get_or_create</code>
-                        <div class="context" id="c86394696">
-                            <ol start="457" class="pre-context" id="pre86394696">
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        specifying whether an object was created.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        lookup, params = self._extract_model_params(defaults, **kwargs)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        # The get() needs to be targeted at the write database in order</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        # to avoid potential transaction consistency problems.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        self._for_write = True</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        try:</pre>
-                                </li>
-                            </ol>
-                            <ol start="464" class="context-line">
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>
-            return self.get(**lookup), False</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='465' class="post-context" id="post86394696">
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        except self.model.DoesNotExist:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>            return self._create_object_from_params(lookup, params)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>    def update_or_create(self, defaults=None, **kwargs):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394696', 'post86394696')">
-                                    <pre>        Looks up an object with the given kwargs, updating one with defaults</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394696')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394696">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>defaults</td>
-                                    <td class="code">
-                                        <pre>None</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>kwargs</td>
-                                    <td class="code">
-                                        <pre>{&#39;nickname&#39;: &#39;18637529170&#39;, &#39;phonenum&#39;: &#39;18637529170&#39;}</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>lookup</td>
-                                    <td class="code">
-                                        <pre>{&#39;nickname&#39;: &#39;18637529170&#39;, &#39;phonenum&#39;: &#39;18637529170&#39;}</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>{&#39;nickname&#39;: &#39;18637529170&#39;, &#39;phonenum&#39;: &#39;18637529170&#39;}</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py</code> in
-                        <code>get</code>
-                        <div class="context" id="c86394632">
-                            <ol start="367" class="pre-context" id="pre86394632">
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        Performs the query and returns a single object matching the given</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        keyword arguments.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        clone = self.filter(*args, **kwargs)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        if self.query.can_filter() and not self.query.distinct_fields:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>            clone = clone.order_by()</pre>
-                                </li>
-                            </ol>
-                            <ol start="374" class="context-line">
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>
-        num = len(clone)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='375' class="post-context" id="post86394632">
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        if num == 1:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>            return clone._result_cache[0]</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>        if not num:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>            raise self.model.DoesNotExist(</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>                &quot;%s matching query does not exist.&quot; %</pre>
-                                </li>
-                                <li onclick="toggle('pre86394632', 'post86394632')">
-                                    <pre>                self.model._meta.object_name</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394632')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394632">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>args</td>
-                                    <td class="code">
-                                        <pre>()</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>clone</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>kwargs</td>
-                                    <td class="code">
-                                        <pre>{&#39;nickname&#39;: &#39;18637529170&#39;, &#39;phonenum&#39;: &#39;18637529170&#39;}</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py</code> in
-                        <code>__len__</code>
-                        <div class="context" id="c86394568">
-                            <ol start="225" class="pre-context" id="pre86394568">
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>    def __repr__(self):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        data = list(self[:REPR_OUTPUT_SIZE + 1])</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        if len(data) &gt; REPR_OUTPUT_SIZE:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>            data[-1] = &quot;...(remaining elements truncated)...&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        return &#39;&lt;%s %r&gt;&#39; % (self.__class__.__name__, data)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>    def __len__(self):</pre>
-                                </li>
-                            </ol>
-                            <ol start="232" class="context-line">
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>
-        self._fetch_all()</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='233' class="post-context" id="post86394568">
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        return len(self._result_cache)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>    def __iter__(self):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        The queryset iterator protocol uses three nested iterators in the</pre>
-                                </li>
-                                <li onclick="toggle('pre86394568', 'post86394568')">
-                                    <pre>        default case:</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394568')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394568">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py</code> in
-                        <code>_fetch_all</code>
-                        <div class="context" id="c86394376">
-                            <ol start="1114" class="pre-context" id="pre86394376">
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        clone._fields = self._fields</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        clone.__dict__.update(kwargs)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        return clone</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>    def _fetch_all(self):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        if self._result_cache is None:</pre>
-                                </li>
-                            </ol>
-                            <ol start="1121" class="context-line">
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>
-            self._result_cache = list(self._iterable_class(self))</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='1122' class="post-context" id="post86394376">
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        if self._prefetch_related_lookups and not self._prefetch_done:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>            self._prefetch_related_objects()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>    def _next_is_sticky(self):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394376', 'post86394376')">
-                                    <pre>        Indicates that the next filter call and the one following that should</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394376')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394376">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py</code> in
-                        <code>__iter__</code>
-                        <div class="context" id="c86394312">
-                            <ol start="46" class="pre-context" id="pre86394312">
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>    def __iter__(self):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        queryset = self.queryset</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        db = queryset.db</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        compiler = queryset.query.get_compiler(using=db)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        # Execute the query. This will also fill compiler.select, klass_info,</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        # and annotations.</pre>
-                                </li>
-                            </ol>
-                            <ol start="53" class="context-line">
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>
-        results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='54' class="post-context" id="post86394312">
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        select, klass_info, annotation_col_map = (compiler.select, compiler.klass_info,</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>                                                  compiler.annotation_col_map)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        model_cls = klass_info[&#39;model&#39;]</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        select_fields = klass_info[&#39;select_fields&#39;]</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        model_fields_start, model_fields_end = select_fields[0], select_fields[-1] + 1</pre>
-                                </li>
-                                <li onclick="toggle('pre86394312', 'post86394312')">
-                                    <pre>        init_list = [f[0].target.attname</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394312')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394312">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>compiler</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.models.sql.compiler.SQLCompiler object at 0x00000000052158D0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>db</td>
-                                    <td class="code">
-                                        <pre>&#39;default&#39;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>queryset</td>
-                                    <td class="code">
-                                        <pre>Error in formatting: OperationalError: no such column: user_user.nickname</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.models.query.ModelIterable object at 0x0000000005215A20&gt;</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\sql\compiler.py</code> in
-                        <code>execute_sql</code>
-                        <div class="context" id="c86394504">
-                            <ol start="892" class="pre-context" id="pre86394504">
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                # Might fail for server-side cursors (e.g. connection closed)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                cursor.close()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>            except Exception:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                # Ignore clean up errors and raise the original error instead.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                # Python 2 doesn&#39;t chain exceptions. Remove this error</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                # silencing when dropping Python 2 compatibility.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>                pass</pre>
-                                </li>
-                            </ol>
-                            <ol start="899" class="context-line">
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>
-            raise original_exception</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='900' class="post-context" id="post86394504">
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>        if result_type == CURSOR:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>            # Caller didn&#39;t specify a result_type, so just give them back the</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>            # cursor to process (and close).</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>            return cursor</pre>
-                                </li>
-                                <li onclick="toggle('pre86394504', 'post86394504')">
-                                    <pre>        if result_type == SINGLE:</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394504')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394504">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>chunked_fetch</td>
-                                    <td class="code">
-                                        <pre>False</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>cursor</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>result_type</td>
-                                    <td class="code">
-                                        <pre>&#39;multi&#39;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.models.sql.compiler.SQLCompiler object at 0x00000000052158D0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = %s AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;%s)&#39;)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\sql\compiler.py</code> in
-                        <code>execute_sql</code>
-                        <div class="context" id="c86394440">
-                            <ol start="882" class="pre-context" id="pre86394440">
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>            else:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>                return</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>        if chunked_fetch:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>            cursor = self.connection.chunked_cursor()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>        else:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>            cursor = self.connection.cursor()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>        try:</pre>
-                                </li>
-                            </ol>
-                            <ol start="889" class="context-line">
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>
-            cursor.execute(sql, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='890' class="post-context" id="post86394440">
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>        except Exception as original_exception:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>            try:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>                # Might fail for server-side cursors (e.g. connection closed)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>                cursor.close()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>            except Exception:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394440', 'post86394440')">
-                                    <pre>                # Ignore clean up errors and raise the original error instead.</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394440')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394440">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>chunked_fetch</td>
-                                    <td class="code">
-                                        <pre>False</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>cursor</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>result_type</td>
-                                    <td class="code">
-                                        <pre>&#39;multi&#39;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.models.sql.compiler.SQLCompiler object at 0x00000000052158D0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = %s AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;%s)&#39;)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86394248">
-                            <ol start="72" class="pre-context" id="pre86394248">
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>class CursorDebugWrapper(CursorWrapper):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>    # XXX callproc isn&#39;t instrumented at this time.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>    def execute(self, sql, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>        start = time()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>        try:</pre>
-                                </li>
-                            </ol>
-                            <ol start="79" class="context-line">
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>
-            return super(CursorDebugWrapper, self).execute(sql, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='80' class="post-context" id="post86394248">
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>        finally:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>            stop = time()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>            duration = stop - start</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>            sql = self.db.ops.last_executed_query(self.cursor, sql, params)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>            self.db.queries_log.append({</pre>
-                                </li>
-                                <li onclick="toggle('pre86394248', 'post86394248')">
-                                    <pre>                &#39;sql&#39;: sql,</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394248')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394248">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>__class__</td>
-                                    <td class="code">
-                                        <pre>&lt;class &#39;django.db.backends.utils.CursorDebugWrapper&#39;&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>duration</td>
-                                    <td class="code">
-                                        <pre>0.0010001659393310547</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = \&#39;18637529170\&#39; AND &#39;
- &#39;&quot;user_user&quot;.&quot;nickname&quot; = \&#39;18637529170\&#39;)&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>start</td>
-                                    <td class="code">
-                                        <pre>1551953858.8810263</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>stop</td>
-                                    <td class="code">
-                                        <pre>1551953858.8820264</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86394184">
-                            <ol start="57" class="pre-context" id="pre86394184">
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>    def execute(self, sql, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>            if params is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>                return self.cursor.execute(sql)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>            else:</pre>
-                                </li>
-                            </ol>
-                            <ol start="64" class="context-line">
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>
-                return self.cursor.execute(sql, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='65' class="post-context" id="post86394184">
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>    def executemany(self, sql, param_list):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre>            return self.cursor.executemany(sql, param_list)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394184', 'post86394184')">
-                                    <pre></pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394184')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394184">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = %s AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;%s)&#39;)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\utils.py</code> in
-                        <code>__exit__</code>
-                        <div class="context" id="c86394120">
-                            <ol start="87" class="pre-context" id="pre86394120">
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                dj_exc_value.__cause__ = exc_value</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                if not hasattr(exc_value, &#39;__traceback__&#39;):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                    exc_value.__traceback__ = traceback</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                # Only set the &#39;errors_occurred&#39; flag for errors that may make</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                # the connection unusable.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                if dj_exc_type not in (DataError, IntegrityError):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>                    self.wrapper.errors_occurred = True</pre>
-                                </li>
-                            </ol>
-                            <ol start="94" class="context-line">
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>
-                six.reraise(dj_exc_type, dj_exc_value, traceback)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='95' class="post-context" id="post86394120">
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>    def __call__(self, func):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>        # Note that we are intentionally not using @wraps here for performance</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>        # reasons. Refs #21109.</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>        def inner(*args, **kwargs):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394120', 'post86394120')">
-                                    <pre>            with self:</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394120')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394120">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>db_exc_type</td>
-                                    <td class="code">
-                                        <pre>&lt;class &#39;sqlite3.OperationalError&#39;&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>dj_exc_type</td>
-                                    <td class="code">
-                                        <pre>&lt;class &#39;django.db.utils.OperationalError&#39;&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>dj_exc_value</td>
-                                    <td class="code">
-                                        <pre>OperationalError(&#39;no such column: user_user.nickname&#39;,)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>exc_type</td>
-                                    <td class="code">
-                                        <pre>&lt;class &#39;sqlite3.OperationalError&#39;&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>exc_value</td>
-                                    <td class="code">
-                                        <pre>OperationalError(&#39;no such column: user_user.nickname&#39;,)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.utils.DatabaseErrorWrapper object at 0x0000000005215B38&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>traceback</td>
-                                    <td class="code">
-                                        <pre>&lt;traceback object at 0x0000000005264488&gt;</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\utils\six.py</code> in
-                        <code>reraise</code>
-                        <div class="context" id="c86394056">
-                            <ol start="678" class="pre-context" id="pre86394056">
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>if PY3:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>    exec_ = getattr(moves.builtins, &quot;exec&quot;)</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>    def reraise(tp, value, tb=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>        if value is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>            value = tp()</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>        if value.__traceback__ is not tb:</pre>
-                                </li>
-                            </ol>
-                            <ol start="685" class="context-line">
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>
-            raise value.with_traceback(tb)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='686' class="post-context" id="post86394056">
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>        raise value</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>else:</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>    def exec_(_code_, _globs_=None, _locs_=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>        &quot;&quot;&quot;Execute code in a namespace.&quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86394056', 'post86394056')">
-                                    <pre>        if _globs_ is None:</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86394056')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86394056">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>tb</td>
-                                    <td class="code">
-                                        <pre>&lt;traceback object at 0x0000000005264488&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>tp</td>
-                                    <td class="code">
-                                        <pre>&lt;class &#39;django.db.utils.OperationalError&#39;&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>value</td>
-                                    <td class="code">
-                                        <pre>OperationalError(&#39;no such column: user_user.nickname&#39;,)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86393992">
-                            <ol start="57" class="pre-context" id="pre86393992">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>    def execute(self, sql, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            if params is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>                return self.cursor.execute(sql)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            else:</pre>
-                                </li>
-                            </ol>
-                            <ol start="64" class="context-line">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>
-                return self.cursor.execute(sql, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='65' class="post-context" id="post86393992">
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>    def executemany(self, sql, param_list):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        self.db.validate_no_broken_transaction()</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>        with self.db.wrap_database_errors:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre>            return self.cursor.executemany(sql, param_list)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393992', 'post86393992')">
-                                    <pre></pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86393992')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86393992">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.utils.CursorDebugWrapper object at 0x000000000522F5C0&gt;</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>sql</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = %s AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;%s)&#39;)</pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="frame django">
-                        <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\sqlite3\base.py</code> in
-                        <code>execute</code>
-                        <div class="context" id="c86393928">
-                            <ol start="321" class="pre-context" id="pre86393928">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    This fixes it -- but note that if you want to use a literal &quot;%s&quot; in a query,</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    you&#39;ll need to use &quot;%%s&quot;.</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    &quot;&quot;&quot;</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def execute(self, query, params=None):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        if params is None:</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>            return Database.Cursor.execute(self, query)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        query = self.convert_query(query)</pre>
-                                </li>
-                            </ol>
-                            <ol start="328" class="context-line">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>
-        return Database.Cursor.execute(self, query, params)</pre>
-                                    <span>...</span>
-                                </li>
-                            </ol>
-                            <ol start='329' class="post-context" id="post86393928">
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def executemany(self, query, param_list):</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        query = self.convert_query(query)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>        return Database.Cursor.executemany(self, query, param_list)</pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre></pre>
-                                </li>
-                                <li onclick="toggle('pre86393928', 'post86393928')">
-                                    <pre>    def convert_query(self, query):</pre>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86393928')">
-                                <span>&#x25b6;</span> Local vars
-                            </a>
-                        </div>
-                        <table class="vars" id="v86393928">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td class="code">
-                                        <pre>(&#39;18637529170&#39;, &#39;18637529170&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>query</td>
-                                    <td class="code">
-                                        <pre>(&#39;SELECT &quot;user_user&quot;.&quot;id&quot;, &quot;user_user&quot;.&quot;phonenum&quot;, &quot;user_user&quot;.&quot;nickname&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;sex&quot;, &quot;user_user&quot;.&quot;birth_year&quot;, &quot;user_user&quot;.&quot;birth_month&quot;, &#39;
- &#39;&quot;user_user&quot;.&quot;birth_day&quot;, &quot;user_user&quot;.&quot;avatar&quot;, &quot;user_user&quot;.&quot;location&quot; FROM &#39;
- &#39;&quot;user_user&quot; WHERE (&quot;user_user&quot;.&quot;phonenum&quot; = ? AND &quot;user_user&quot;.&quot;nickname&quot; = &#39;
- &#39;?)&#39;)</pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>self</td>
-                                    <td class="code">
-                                        <pre>&lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000000000521C798&gt;</pre>
+                                        <pre>&lt;User: User object&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -2182,15 +617,15 @@
                 <div id="pastebinTraceback" class="pastebin">
                     <input type="hidden" name="language" value="PythonConsole">
                     <input type="hidden" name="title"
-      value="OperationalError at /api/user/submit_vcode">
+      value="AttributeError at /api/user/get_profile">
                     <input type="hidden" name="source" value="Django Dpaste Agent">
                     <input type="hidden" name="poster" value="Django">
                     <textarea name="content" id="traceback_area" cols="140" rows="25">
 Environment:
 
 
-Request Method: POST
-Request URL: http://127.0.0.1:8000/api/user/submit_vcode?phonenum=18637529170
+Request Method: GET
+Request URL: http://127.0.0.1:8000/api/user/get_profile
 
 Django Version: 1.11.18
 Python Version: 3.6.4
@@ -2203,19 +638,12 @@ Installed Middleware:
 [&#39;django.middleware.security.SecurityMiddleware&#39;,
  &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
  &#39;django.middleware.common.CommonMiddleware&#39;,
- &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;]
+ &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;,
+ &#39;common.middleware.AuthMiddleware&#39;]
 
 
 
 Traceback:
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py" in execute
-  64.                 return self.cursor.execute(sql, params)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\sqlite3\base.py" in execute
-  328.         return Database.Cursor.execute(self, query, params)
-
-The above exception (no such column: user_user.nickname) was the direct cause of the following exception:
 
 File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\exception.py" in inner
   41.             response = get_response(request)
@@ -2226,53 +654,11 @@ File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py" in
 File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py" in _get_response
   185.                 response = wrapped_callback(request, *callback_args, **callback_kwargs)
 
-File "F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py" in submit_vcode
-  57.                                            nickname=phone)
+File "F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py" in get_profile
+  96.     profile_data=user.profile.to_dict(&#39;vibration&#39;,&#39;only_matche&#39;,&#39;auto_play&#39;)
 
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\manager.py" in manager_method
-  85.                 return getattr(self.get_queryset(), name)(*args, **kwargs)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py" in get_or_create
-  464.             return self.get(**lookup), False
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py" in get
-  374.         num = len(clone)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py" in __len__
-  232.         self._fetch_all()
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py" in _fetch_all
-  1121.             self._result_cache = list(self._iterable_class(self))
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\query.py" in __iter__
-  53.         results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\sql\compiler.py" in execute_sql
-  899.             raise original_exception
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\models\sql\compiler.py" in execute_sql
-  889.             cursor.execute(sql, params)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py" in execute
-  79.             return super(CursorDebugWrapper, self).execute(sql, params)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py" in execute
-  64.                 return self.cursor.execute(sql, params)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\utils.py" in __exit__
-  94.                 six.reraise(dj_exc_type, dj_exc_value, traceback)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\utils\six.py" in reraise
-  685.             raise value.with_traceback(tb)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\utils.py" in execute
-  64.                 return self.cursor.execute(sql, params)
-
-File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\db\backends\sqlite3\base.py" in execute
-  328.         return Database.Cursor.execute(self, query, params)
-
-Exception Type: OperationalError at /api/user/submit_vcode
-Exception Value: no such column: user_user.nickname
+Exception Type: AttributeError at /api/user/get_profile
+Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
 </textarea>
                     <br>
                     <br>
@@ -2284,51 +670,30 @@ Exception Value: no such column: user_user.nickname
         <div id="requestinfo">
             <h2>Request information</h2>
             <h3 id="user-info">USER</h3>
-            <p>[unable to retrieve the current user]</p>
+            <p>User object</p>
             <h3 id="get-info">GET</h3>
-            <table class="req">
-                <thead>
-                    <tr>
-                        <th>Variable</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>phonenum</td>
-                        <td class="code">
-                            <pre>&#39;18637529170&#39;</pre>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>No GET data</p>
             <h3 id="post-info">POST</h3>
-            <table class="req">
-                <thead>
-                    <tr>
-                        <th>Variable</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>phonenum</td>
-                        <td class="code">
-                            <pre>&#39;18637529170&#39;</pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>vcode</td>
-                        <td class="code">
-                            <pre>&#39;0290&#39;</pre>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>No POST data</p>
             <h3 id="files-info">FILES</h3>
             <p>No FILES data</p>
             <h3 id="cookie-info">COOKIES</h3>
-            <p>No cookie data</p>
+            <table class="req">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sessionid</td>
+                        <td class="code">
+                            <pre>&#39;l35burkog73342wksw29bk8kquxabyd4&#39;</pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <h3 id="meta-info">META</h3>
             <table class="req">
                 <thead>
@@ -2390,14 +755,13 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>CONTENT_LENGTH</td>
                         <td class="code">
-                            <pre>&#39;282&#39;</pre>
+                            <pre>&#39;&#39;</pre>
                         </td>
                     </tr>
                     <tr>
                         <td>CONTENT_TYPE</td>
                         <td class="code">
-                            <pre>(&#39;multipart/form-data; &#39;
- &#39;boundary=--------------------------037965747841227894490662&#39;)</pre>
+                            <pre>&#39;text/plain&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -2461,6 +825,12 @@ Exception Value: no such column: user_user.nickname
                         </td>
                     </tr>
                     <tr>
+                        <td>HTTP_COOKIE</td>
+                        <td class="code">
+                            <pre>&#39;sessionid=l35burkog73342wksw29bk8kquxabyd4&#39;</pre>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>HTTP_HOST</td>
                         <td class="code">
                             <pre>&#39;127.0.0.1:8000&#39;</pre>
@@ -2469,7 +839,7 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>HTTP_POSTMAN_TOKEN</td>
                         <td class="code">
-                            <pre>&#39;9f671cf0-5cb7-4f19-9366-82aea6183602&#39;</pre>
+                            <pre>&#39;dfb5812b-8563-45b7-adf4-c5e7a00fafcb&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -2530,7 +900,7 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>PATH_INFO</td>
                         <td class="code">
-                            <pre>&#39;/api/user/submit_vcode&#39;</pre>
+                            <pre>&#39;/api/user/get_profile&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -2602,7 +972,7 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>QUERY_STRING</td>
                         <td class="code">
-                            <pre>&#39;phonenum=18637529170&#39;</pre>
+                            <pre>&#39;&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -2620,7 +990,7 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>REQUEST_METHOD</td>
                         <td class="code">
-                            <pre>&#39;POST&#39;</pre>
+                            <pre>&#39;GET&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -2770,7 +1140,7 @@ Exception Value: no such column: user_user.nickname
                     <tr>
                         <td>wsgi.input</td>
                         <td class="code">
-                            <pre>&lt;_io.BufferedReader name=192&gt;</pre>
+                            <pre>&lt;_io.BufferedReader name=860&gt;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -3453,7 +1823,8 @@ Exception Value: no such column: user_user.nickname
                             <pre>[&#39;django.middleware.security.SecurityMiddleware&#39;,
  &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
  &#39;django.middleware.common.CommonMiddleware&#39;,
- &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;]</pre>
+ &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;,
+ &#39;common.middleware.AuthMiddleware&#39;]</pre>
                         </td>
                     </tr>
                     <tr>
