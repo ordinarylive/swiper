@@ -14,6 +14,24 @@ YZX_SMS_PARAMS={
 }
 
 
+#七牛云配置
+QN_ACCESS_KEY = 'wpHx7lx3HEcZe2yysLUXOzUE6efpXbrSEgXLAVue'
+QN_SECRET_KEY = 'FgKmdfaJmlWSRMOfTGXpXZFYRlUOCrmXddbFlQpw'
+QN_HOST = '七牛云域名'  #七牛云域名
+QN_BUCKET = 'ordinarylive'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

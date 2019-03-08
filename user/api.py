@@ -3,17 +3,22 @@ from django.shortcuts import render
 # Create your views here.
 
 ## 接口规范
-
+from urllib.parse import urljoin
 from django.http import JsonResponse
 from django.core.cache import cache
+from django.conf import  settings
 
+from swiper import config
 from common import errors
 from common import keys
 
 from user.logics import send_vcode
 from user.logics import is_phonenum
 from libs.http import render_json
+from libs.qncloud import  upload_qncloud
 
+
+from user.logics import save_upload_file
 from user.models import User
 from user.forms import ProfileForm
 
@@ -114,14 +119,22 @@ def set_profile(request):
 
 #上传个人头像接口
 def upload_avatar(request):
+
     user=request.user
+    avatar=request.FILES.get('avatar')
+    #分块传入medias
+    #定期清理medias中的文件
+    filename='Avatar-%s'% user.id
+    filename,filepath = save_upload_file(filename,avatar)
 
+    #上传到七牛云
+    upload_qncloud(filename,filepath)
 
+    #记录头像URL地址
+    user.avatar =urljoin(config.QN_HOST,filename)
+    user.save()
 
-
-
-
-
+    return render_json()
 
 
 
