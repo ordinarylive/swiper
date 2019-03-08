@@ -15,7 +15,7 @@ from user.logics import is_phonenum
 from libs.http import render_json
 
 from user.models import User
-
+from user.forms import ProfileForm
 
 
 
@@ -90,8 +90,31 @@ process_response
 '''
 
 
+#获取个人资料接口
+def get_profile(request):
+    user=request.user
+    profile_data=user.profile.to_dict('vibration','only_matche','auto_play')
+    return render_json(profile_data)
 
 
+#修改个人资料接口
+def set_profile(request):
+    form = ProfileForm(request.POST)
+    if  form.is_valid():
+        profile=form.save(commit=False) # 未添加到数据库  但得到profile模型对象
+        profile.id=request.user.id
+        profile.save()
+        return render_json()
+    else:
+        return render_json(form.errors,code=errors.PROFILE_ERR)
+
+
+
+
+
+#上传个人头像接口
+def upload_avatar(request):
+    user=request.user
 
 
 

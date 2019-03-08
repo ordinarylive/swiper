@@ -1,5 +1,7 @@
 import datetime
 from django.db import models
+from libs.orm import ModelMixin
+
 
 # Create your models here.
 class User(models.Model):
@@ -59,7 +61,7 @@ class User(models.Model):
 
 
 
-class Profile(models.Model):
+class Profile(models.Model,ModelMixin):
     SEX = (
         ('male', '男性'),
         ('female', '女性'),
@@ -88,6 +90,7 @@ class Profile(models.Model):
     vibration=models.BooleanField(default=True,verbose_name='开启震动')
     only_matche=models.BooleanField(default=True,verbose_name='不让为匹配的人看到我的相册')
     auto_play=models.BooleanField(default=True,verbose_name='自动播放视频')
+
 
 
 
