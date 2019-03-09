@@ -2,12 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 from libs.http import render_json
-
+from social.logic import  rcmd
 
 def rcmd_users(request):
     #获取推荐列表
+    users=rcmd(request.user)
+    data=[user.to_dict() for user in users]
+    return render_json(data)
 
-    return render_json()
+
+
+
 
 
 
