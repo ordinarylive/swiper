@@ -29,4 +29,3 @@ class Swiped(models.Model):
 
 
 
-    
