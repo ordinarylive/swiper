@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="robots" content="NONE,NOARCHIVE">
-        <title>AttributeError at /api/user/get_profile</title>
+        <title>TypeError at /api/social/superlike</title>
         <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -123,16 +123,16 @@
     </head>
     <body>
         <div id="summary">
-            <h1>AttributeError at /api/user/get_profile</h1>
-            <pre class="exception_value">&#39;Profile&#39; object has no attribute &#39;to_dict&#39;</pre>
+            <h1>TypeError at /api/social/superlike</h1>
+            <pre class="exception_value">&#39;&gt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;</pre>
             <table class="meta">
                 <tr>
                     <th>Request Method:</th>
-                    <td>GET</td>
+                    <td>POST</td>
                 </tr>
                 <tr>
                     <th>Request URL:</th>
-                    <td>http://127.0.0.1:8000/api/user/get_profile</td>
+                    <td>http://127.0.0.1:8000/api/social/superlike</td>
                 </tr>
                 <tr>
                     <th>Django Version:</th>
@@ -140,17 +140,17 @@
                 </tr>
                 <tr>
                     <th>Exception Type:</th>
-                    <td>AttributeError</td>
+                    <td>TypeError</td>
                 </tr>
                 <tr>
                     <th>Exception Value:</th>
                     <td>
-                        <pre>&#39;Profile&#39; object has no attribute &#39;to_dict&#39;</pre>
+                        <pre>&#39;&gt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;</pre>
                     </td>
                 </tr>
                 <tr>
                     <th>Exception Location:</th>
-                    <td>F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py in get_profile, line 96</td>
+                    <td>F:\python1807html练习文件\项目\tantanproject\swiper\social\models.py in make_friends, line 33</td>
                 </tr>
                 <tr>
                     <th>Python Executable:</th>
@@ -171,12 +171,13 @@
  &#39;E:\\Anaconda\\AnacondaUrl\\lib\\site-packages&#39;,
  &#39;E:\\Anaconda\\AnacondaUrl\\lib\\site-packages\\win32&#39;,
  &#39;E:\\Anaconda\\AnacondaUrl\\lib\\site-packages\\win32\\lib&#39;,
- &#39;E:\\Anaconda\\AnacondaUrl\\lib\\site-packages\\Pythonwin&#39;]</pre>
+ &#39;E:\\Anaconda\\AnacondaUrl\\lib\\site-packages\\Pythonwin&#39;,
+ &#39;F:\\python1807html练习文件\\项目\\tantanproject\\swiper&#39;]</pre>
                     </td>
                 </tr>
                 <tr>
                     <th>Server time:</th>
-                    <td>星期五, 8 三月 2019 12:27:48 +0800</td>
+                    <td>星期六, 9 三月 2019 15:18:50 +0800</td>
                 </tr>
             </table>
         </div>
@@ -192,64 +193,64 @@
                     <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\exception.py</code> in
                         <code>inner</code>
-                        <div class="context" id="c87120392">
-                            <ol start="34" class="pre-context" id="pre87120392">
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                        <div class="context" id="c95543496">
+                            <ol start="34" class="pre-context" id="pre95543496">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    This decorator is automatically applied to all middleware to ensure that</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    no middleware leaks an exception and that the next middleware in the stack</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    can rely on getting a response instead of an exception.</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    &quot;&quot;&quot;</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    @wraps(get_response, assigned=available_attrs(get_response))</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    def inner(request):</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>        try:</pre>
                                 </li>
                             </ol>
                             <ol start="41" class="context-line">
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>
             response = get_response(request)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='42' class="post-context" id="post87120392">
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                            <ol start='42' class="post-context" id="post95543496">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>        except Exception as exc:</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>            response = response_for_exception(request, exc)</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>        return response</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre>    return inner</pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre87120392', 'post87120392')">
+                                <li onclick="toggle('pre95543496', 'post95543496')">
                                     <pre></pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '87120392')">
+                            <a href="#" onclick="return varToggle(this, '95543496')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v87120392">
+                        <table class="vars" id="v95543496">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -260,19 +261,19 @@
                                 <tr>
                                     <td>exc</td>
                                     <td class="code">
-                                        <pre>AttributeError(&quot;&#39;Profile&#39; object has no attribute &#39;to_dict&#39;&quot;,)</pre>
+                                        <pre>TypeError(&quot;&#39;&gt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;&quot;,)</pre>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>get_response</td>
                                     <td class="code">
-                                        <pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E98CC0&gt;&gt;</pre>
+                                        <pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E97F98&gt;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: POST &#39;/api/social/superlike&#39;&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -281,64 +282,64 @@
                     <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py</code> in
                         <code>_get_response</code>
-                        <div class="context" id="c86110472">
-                            <ol start="180" class="pre-context" id="pre86110472">
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                        <div class="context" id="c95543368">
+                            <ol start="180" class="pre-context" id="pre95543368">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>                break</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>            wrapped_callback = self.make_view_atomic(callback)</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>            try:</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>            except Exception as e:</pre>
                                 </li>
                             </ol>
                             <ol start="187" class="context-line">
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>
                 response = self.process_exception_by_middleware(e, request)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='188' class="post-context" id="post86110472">
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                            <ol start='188' class="post-context" id="post95543368">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>        # Complain if the view returned None (a common error).</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>            if isinstance(callback, types.FunctionType):    # FBV</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>                view_name = callback.__name__</pre>
                                 </li>
-                                <li onclick="toggle('pre86110472', 'post86110472')">
+                                <li onclick="toggle('pre95543368', 'post95543368')">
                                     <pre>            else:                                           # CBV</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86110472')">
+                            <a href="#" onclick="return varToggle(this, '95543368')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86110472">
+                        <table class="vars" id="v95543368">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -349,7 +350,7 @@
                                 <tr>
                                     <td>callback</td>
                                     <td class="code">
-                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
+                                        <pre>&lt;function superlike at 0x00000000059FBBF8&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -367,7 +368,7 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: POST &#39;/api/social/superlike&#39;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -379,7 +380,7 @@
                                 <tr>
                                     <td>resolver_match</td>
                                     <td class="code">
-                                        <pre>ResolverMatch(func=user.api.get_profile, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
+                                        <pre>ResolverMatch(func=social.api.superlike, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -391,13 +392,13 @@
                                 <tr>
                                     <td>self</td>
                                     <td class="code">
-                                        <pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E98CC0&gt;</pre>
+                                        <pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E97F98&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>wrapped_callback</td>
                                     <td class="code">
-                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
+                                        <pre>&lt;function superlike at 0x00000000059FBBF8&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
@@ -406,64 +407,64 @@
                     <li class="frame django">
                         <code>E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py</code> in
                         <code>_get_response</code>
-                        <div class="context" id="c86113160">
-                            <ol start="178" class="pre-context" id="pre86113160">
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                        <div class="context" id="c95626312">
+                            <ol start="178" class="pre-context" id="pre95626312">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            response = middleware_method(request, callback, callback_args, callback_kwargs)</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            if response:</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>                break</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            wrapped_callback = self.make_view_atomic(callback)</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            try:</pre>
                                 </li>
                             </ol>
                             <ol start="185" class="context-line">
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>
                 response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='186' class="post-context" id="post86113160">
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                            <ol start='186' class="post-context" id="post95626312">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            except Exception as e:</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>                response = self.process_exception_by_middleware(e, request)</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>        # Complain if the view returned None (a common error).</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>        if response is None:</pre>
                                 </li>
-                                <li onclick="toggle('pre86113160', 'post86113160')">
+                                <li onclick="toggle('pre95626312', 'post95626312')">
                                     <pre>            if isinstance(callback, types.FunctionType):    # FBV</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '86113160')">
+                            <a href="#" onclick="return varToggle(this, '95626312')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v86113160">
+                        <table class="vars" id="v95626312">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -474,7 +475,7 @@
                                 <tr>
                                     <td>callback</td>
                                     <td class="code">
-                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
+                                        <pre>&lt;function superlike at 0x00000000059FBBF8&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -492,7 +493,7 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: POST &#39;/api/social/superlike&#39;&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -504,7 +505,7 @@
                                 <tr>
                                     <td>resolver_match</td>
                                     <td class="code">
-                                        <pre>ResolverMatch(func=user.api.get_profile, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
+                                        <pre>ResolverMatch(func=social.api.superlike, args=(), kwargs={}, url_name=None, app_names=[], namespaces=[])</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -516,79 +517,79 @@
                                 <tr>
                                     <td>self</td>
                                     <td class="code">
-                                        <pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E98CC0&gt;</pre>
+                                        <pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x0000000003E97F98&gt;</pre>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>wrapped_callback</td>
                                     <td class="code">
-                                        <pre>&lt;function get_profile at 0x000000000515B510&gt;</pre>
+                                        <pre>&lt;function superlike at 0x00000000059FBBF8&gt;</pre>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </li>
                     <li class="frame user">
-                        <code>F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py</code> in
-                        <code>get_profile</code>
-                        <div class="context" id="c82318600">
-                            <ol start="89" class="pre-context" id="pre82318600">
-                                <li onclick="toggle('pre82318600', 'post82318600')">
+                        <code>F:\python1807html练习文件\项目\tantanproject\swiper\social\api.py</code> in
+                        <code>superlike</code>
+                        <div class="context" id="c95628616">
+                            <ol start="26" class="pre-context" id="pre95628616">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    sid=int(request.POST.get(&#39;sid&#39;))</pre>
+                                </li>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    matched=logics.like_someone(request.user,sid)</pre>
+                                </li>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    return render_json({&#39;is_matched&#39;:matched})</pre>
+                                </li>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>&#39;&#39;&#39;</pre>
-                                </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre></pre>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>def superlike(request):</pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>#获取个人资料接口</pre>
-                                </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>def get_profile(request):</pre>
-                                </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>    user=request.user</pre>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    sid=request.POST.get(&#39;sid&#39;)</pre>
                                 </li>
                             </ol>
-                            <ol start="96" class="context-line">
-                                <li onclick="toggle('pre82318600', 'post82318600')">
+                            <ol start="33" class="context-line">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
                                     <pre>
-    profile_data=user.profile.to_dict(&#39;vibration&#39;,&#39;only_matche&#39;,&#39;auto_play&#39;)</pre>
+    matched = logics.superlike_someone(request.user, sid)</pre>
                                     <span>...</span>
                                 </li>
                             </ol>
-                            <ol start='97' class="post-context" id="post82318600">
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>    return render_json(profile_data)</pre>
+                            <ol start='34' class="post-context" id="post95628616">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    return render_json({&#39;is_matched&#39;: matched})</pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
+                                <li onclick="toggle('pre95628616', 'post95628616')">
                                     <pre></pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>#修改个人资料接口</pre>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>def dislike(request):</pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>def set_profile(request):</pre>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    sid=request.POST.get(&#39;sid&#39;)</pre>
                                 </li>
-                                <li onclick="toggle('pre82318600', 'post82318600')">
-                                    <pre>    form = ProfileForm(request.POST)</pre>
+                                <li onclick="toggle('pre95628616', 'post95628616')">
+                                    <pre>    return render_json()</pre>
                                 </li>
                             </ol>
                         </div>
                         <div class="commands">
-                            <a href="#" onclick="return varToggle(this, '82318600')">
+                            <a href="#" onclick="return varToggle(this, '95628616')">
                                 <span>&#x25b6;</span> Local vars
                             </a>
                         </div>
-                        <table class="vars" id="v82318600">
+                        <table class="vars" id="v95628616">
                             <thead>
                                 <tr>
                                     <th>Variable</th>
@@ -599,7 +600,96 @@
                                 <tr>
                                     <td>request</td>
                                     <td class="code">
-                                        <pre>&lt;WSGIRequest: GET &#39;/api/user/get_profile&#39;&gt;</pre>
+                                        <pre>&lt;WSGIRequest: POST &#39;/api/social/superlike&#39;&gt;</pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>sid</td>
+                                    <td class="code">
+                                        <pre>&#39;348&#39;</pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li class="frame user">
+                        <code>F:\python1807html练习文件\项目\tantanproject\swiper\social\logics.py</code> in
+                        <code>superlike_someone</code>
+                        <div class="context" id="c95626696">
+                            <ol start="39" class="pre-context" id="pre95626696">
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>def superlike_someone(user,sid):</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    # 添加滑动记录</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    uid = user.id</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    Swiped.objects.create(uid=user.id, sid=sid, flag=&#39;superlike&#39;)</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    # 检查对方是否喜欢本user#如果喜欢 建立好友关系</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    if Swiped.is_liked(sid, uid):</pre>
+                                </li>
+                            </ol>
+                            <ol start="46" class="context-line">
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>
+        Friend.make_friends(uid, sid)</pre>
+                                    <span>...</span>
+                                </li>
+                            </ol>
+                            <ol start='47' class="post-context" id="post95626696">
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>        # TODO：给对方 推送一条消息  通知新增了好友user  第三方平台 联系你喜欢的好友  进行提示</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>        return True</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre>    return False</pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95626696', 'post95626696')">
+                                    <pre></pre>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="commands">
+                            <a href="#" onclick="return varToggle(this, '95626696')">
+                                <span>&#x25b6;</span> Local vars
+                            </a>
+                        </div>
+                        <table class="vars" id="v95626696">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sid</td>
+                                    <td class="code">
+                                        <pre>&#39;348&#39;</pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>uid</td>
+                                    <td class="code">
+                                        <pre>1</pre>
                                     </td>
                                 </tr>
                                 <tr>
@@ -611,21 +701,110 @@
                             </tbody>
                         </table>
                     </li>
+                    <li class="frame user">
+                        <code>F:\python1807html练习文件\项目\tantanproject\swiper\social\models.py</code> in
+                        <code>make_friends</code>
+                        <div class="context" id="c95088072">
+                            <ol start="26" class="pre-context" id="pre95088072">
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>    uid1=models.IntegerField()</pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>    uid2=models.IntegerField()</pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>    @classmethod</pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>    def make_friends(cls,uid1,uid2):</pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>        # 建立好友关系</pre>
+                                </li>
+                            </ol>
+                            <ol start="33" class="context-line">
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>
+        uid1,uid2 =  (uid2,uid1)   if uid1 &gt;uid2 else (uid1,uid2)</pre>
+                                    <span>...</span>
+                                </li>
+                            </ol>
+                            <ol start='34' class="post-context" id="post95088072">
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre>        cls.objects.get_or_create(uid1=uid1,uid2=uid2)</pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                                <li onclick="toggle('pre95088072', 'post95088072')">
+                                    <pre></pre>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="commands">
+                            <a href="#" onclick="return varToggle(this, '95088072')">
+                                <span>&#x25b6;</span> Local vars
+                            </a>
+                        </div>
+                        <table class="vars" id="v95088072">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>cls</td>
+                                    <td class="code">
+                                        <pre>&lt;class &#39;social.models.Friend&#39;&gt;</pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>uid1</td>
+                                    <td class="code">
+                                        <pre>1</pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>uid2</td>
+                                    <td class="code">
+                                        <pre>&#39;348&#39;</pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
                 </ul>
             </div>
             <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
                 <div id="pastebinTraceback" class="pastebin">
                     <input type="hidden" name="language" value="PythonConsole">
                     <input type="hidden" name="title"
-      value="AttributeError at /api/user/get_profile">
+      value="TypeError at /api/social/superlike">
                     <input type="hidden" name="source" value="Django Dpaste Agent">
                     <input type="hidden" name="poster" value="Django">
                     <textarea name="content" id="traceback_area" cols="140" rows="25">
 Environment:
 
 
-Request Method: GET
-Request URL: http://127.0.0.1:8000/api/user/get_profile
+Request Method: POST
+Request URL: http://127.0.0.1:8000/api/social/superlike
 
 Django Version: 1.11.18
 Python Version: 3.6.4
@@ -633,7 +812,8 @@ Installed Applications:
 [&#39;django.contrib.contenttypes&#39;,
  &#39;django.contrib.sessions&#39;,
  &#39;django.contrib.staticfiles&#39;,
- &#39;user&#39;]
+ &#39;user&#39;,
+ &#39;social&#39;]
 Installed Middleware:
 [&#39;django.middleware.security.SecurityMiddleware&#39;,
  &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
@@ -654,11 +834,17 @@ File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py" in
 File "E:\Anaconda\AnacondaUrl\lib\site-packages\django\core\handlers\base.py" in _get_response
   185.                 response = wrapped_callback(request, *callback_args, **callback_kwargs)
 
-File "F:\python1807html练习文件\项目\tantanproject\swiper\user\api.py" in get_profile
-  96.     profile_data=user.profile.to_dict(&#39;vibration&#39;,&#39;only_matche&#39;,&#39;auto_play&#39;)
+File "F:\python1807html练习文件\项目\tantanproject\swiper\social\api.py" in superlike
+  33.     matched = logics.superlike_someone(request.user, sid)
 
-Exception Type: AttributeError at /api/user/get_profile
-Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
+File "F:\python1807html练习文件\项目\tantanproject\swiper\social\logics.py" in superlike_someone
+  46.         Friend.make_friends(uid, sid)
+
+File "F:\python1807html练习文件\项目\tantanproject\swiper\social\models.py" in make_friends
+  33.         uid1,uid2 =  (uid2,uid1)   if uid1 &gt;uid2 else (uid1,uid2)
+
+Exception Type: TypeError at /api/social/superlike
+Exception Value: &#39;&gt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;
 </textarea>
                     <br>
                     <br>
@@ -674,7 +860,22 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
             <h3 id="get-info">GET</h3>
             <p>No GET data</p>
             <h3 id="post-info">POST</h3>
-            <p>No POST data</p>
+            <table class="req">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sid</td>
+                        <td class="code">
+                            <pre>&#39;348&#39;</pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <h3 id="files-info">FILES</h3>
             <p>No FILES data</p>
             <h3 id="cookie-info">COOKIES</h3>
@@ -755,13 +956,14 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>CONTENT_LENGTH</td>
                         <td class="code">
-                            <pre>&#39;&#39;</pre>
+                            <pre>&#39;161&#39;</pre>
                         </td>
                     </tr>
                     <tr>
                         <td>CONTENT_TYPE</td>
                         <td class="code">
-                            <pre>&#39;text/plain&#39;</pre>
+                            <pre>(&#39;multipart/form-data; &#39;
+ &#39;boundary=--------------------------621861569359081834201866&#39;)</pre>
                         </td>
                     </tr>
                     <tr>
@@ -839,13 +1041,13 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>HTTP_POSTMAN_TOKEN</td>
                         <td class="code">
-                            <pre>&#39;dfb5812b-8563-45b7-adf4-c5e7a00fafcb&#39;</pre>
+                            <pre>&#39;ef62422d-162f-4301-9b4b-1a35dc99ec45&#39;</pre>
                         </td>
                     </tr>
                     <tr>
                         <td>HTTP_USER_AGENT</td>
                         <td class="code">
-                            <pre>&#39;PostmanRuntime/7.6.0&#39;</pre>
+                            <pre>&#39;PostmanRuntime/7.6.1&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -900,7 +1102,7 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>PATH_INFO</td>
                         <td class="code">
-                            <pre>&#39;/api/user/get_profile&#39;</pre>
+                            <pre>&#39;/api/social/superlike&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -990,7 +1192,7 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>REQUEST_METHOD</td>
                         <td class="code">
-                            <pre>&#39;GET&#39;</pre>
+                            <pre>&#39;POST&#39;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -1140,7 +1342,7 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>wsgi.input</td>
                         <td class="code">
-                            <pre>&lt;_io.BufferedReader name=860&gt;</pre>
+                            <pre>&lt;_io.BufferedReader name=1036&gt;</pre>
                         </td>
                     </tr>
                     <tr>
@@ -1619,7 +1821,8 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                             <pre>[&#39;django.contrib.contenttypes&#39;,
  &#39;django.contrib.sessions&#39;,
  &#39;django.contrib.staticfiles&#39;,
- &#39;user&#39;]</pre>
+ &#39;user&#39;,
+ &#39;social&#39;]</pre>
                         </td>
                     </tr>
                     <tr>
@@ -1802,7 +2005,7 @@ Exception Value: &#39;Profile&#39; object has no attribute &#39;to_dict&#39;
                     <tr>
                         <td>MEDIA_ROOT</td>
                         <td class="code">
-                            <pre>&#39;&#39;</pre>
+                            <pre>&#39;medias&#39;</pre>
                         </td>
                     </tr>
                     <tr>
