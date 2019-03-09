@@ -2,6 +2,8 @@
 import re
 import os
 from random import randint,randrange
+from urllib.parse import urljoin
+
 
 import requests
 from django.core.cache import cache
@@ -9,6 +11,9 @@ from django.conf import settings
 
 from swiper import config
 from common import keys
+from libs.qncloud import  upload_qncloud
+from worker import celery_app
+
 
 def is_phonenum(phonenum):
     print(phonenum,type(phonenum))
@@ -39,6 +44,8 @@ def send_vcode(phonenum):
             return True
     return False
 
+
+
 def save_upload_file(filename,upload_file):
     #保存上传的文件到本地
     filepath =os.path.join(settings.BASE_DIR,settings.MEDIA_ROOT,filename)
@@ -48,6 +55,18 @@ def save_upload_file(filename,upload_file):
     return filename,filepath
 
 
+@celery_app.task
+def  save_avatar(user,avatar):
+    #保存用户形象
+    filename = 'Avatar-%s' % user.id
+    filename, filepath = save_upload_file(filename, avatar)
+
+    # 上传到七牛云
+    upload_qncloud(filename, filepath)
+
+    # 记录头像URL地址
+    user.avatar = urljoin(config.QN_HOST, filename)
+    user.save()
 
 
 
