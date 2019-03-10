@@ -30,9 +30,13 @@ class Swiped(models.Model):
     def is_liked(cls,uid,sid):
         return cls.objects.filter(uid=uid,sid=sid,flag__in=['like','superlike']).exists()
 
+    @classmethod
+    def  who_liked_me(cls,uid):
+        #喜欢过我的人的uid列表
+        swiped = cls.objects.filter(sid=uid,flag__in=['like','superlike']).only('uid')
 
-
-
+        uid_list=[swp.uid for swp in swiped]
+        return uid_list
 
 
 
@@ -49,6 +53,15 @@ class Friend(models.Model):
         # 建立好友关系
         uid1,uid2 =  (uid2,uid1)   if uid1 >uid2 else (uid1,uid2)
         cls.objects.get_or_create(uid1=uid1,uid2=uid2)
+
+    @classmethod
+    def break_off(cls,uid1,uid2):
+        #撤销好友关系
+        uid1, uid2 = (uid2, uid1) if uid1 > uid2 else (uid1, uid2)
+        cls.objects.filter(uid1=uid1, uid2=uid2).delete()
+
+
+
 
 
 

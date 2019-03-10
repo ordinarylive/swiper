@@ -5,7 +5,7 @@ from libs.http import render_json
 
 from social import logics
 from social.models import Swiped
-
+from user.models import User
 
 
 def rcmd_users(request):
@@ -41,10 +41,20 @@ def dislike(request):
 
 
 def rewind(request):
+    #返回接口   每天只允许反悔3次
+    #返回操作 撤销上一次滑动操作
+    #撤销上次操作
+    logics.rewind(request.user)
     return render_json()
 
+
+
 def show_liked_me(request):
-    return render_json()
+    uid_list = Swiped.who_liked_me(request.user.id)
+    users=User.objects.filter(id__in=uid_list)
+    user_info=[user.to_dict() for user in users]
+
+    return render_json(user_info)
 
 
 
