@@ -37,7 +37,7 @@ INSTALLED_APPS = [
 
     'django.contrib.staticfiles',
     'user',
-
+    'social',
 
 
 ]
@@ -49,7 +49,7 @@ MIDDLEWARE = [
 
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'common.middleware.AuthMiddleware',
-
+    'common.middleware.LogicErrorMiddleware',
 
 ]
 
