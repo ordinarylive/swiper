@@ -38,4 +38,8 @@ urlpatterns = [
     url(r'api/social/dislike', social_api.dislike),
     url(r'api/social/rewind', social_api.rewind),
     url(r'api/social/show_liked_me', social_api.show_liked_me),
+
+    url(r'api/social/friends', social_api.friends),
+    url(r'api/social/friend_info', social_api.friend_info),
+
 ]

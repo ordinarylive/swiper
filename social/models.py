@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Q
+
 from common import errors
 # Create your models here.
 
@@ -44,7 +46,6 @@ class Swiped(models.Model):
 class Friend(models.Model):
     '好友关系表'
     uid1=models.IntegerField()
-
     uid2=models.IntegerField()
 
 
@@ -53,6 +54,19 @@ class Friend(models.Model):
         # 建立好友关系
         uid1,uid2 =  (uid2,uid1)   if uid1 >uid2 else (uid1,uid2)
         cls.objects.get_or_create(uid1=uid1,uid2=uid2)
+
+    @classmethod
+    def friend_list(cls,uid):
+        '''获取好友id的列表'''
+        friend_id_list=[]
+        condition=Q(uid1=uid)|Q(uid2=uid) #封装查询条件
+
+        for frd in cls.objects.filter(condition):
+            friend_id = frd.uid1  if uid==frd.uid2 else frd.uid2
+            friend_id_list.append(friend_id)
+
+        return friend_id_list
+
 
     @classmethod
     def break_off(cls,uid1,uid2):

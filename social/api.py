@@ -6,7 +6,7 @@ from libs.http import render_json
 from social import logics
 from social.models import Swiped
 from user.models import User
-
+from social.models import Friend
 
 def rcmd_users(request):
     #获取推荐列表
@@ -59,8 +59,18 @@ def show_liked_me(request):
 
 
 def friends(request):
-    return render_json()
+    #查看好友列表  查看好友信息
 
+    friend_id_list=Friend.friend_list(request.user.id)
+    my_friends=User.objects.filter(id__in=friend_id_list)
+    friend_info=[friend.to_dict() for friend in my_friends]
+
+    return render_json(friend_info)
+
+
+def friend_info(request):
+
+    return render_json()
 
 
 
