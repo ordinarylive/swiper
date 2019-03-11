@@ -1,5 +1,7 @@
 '''第三方平台配置'''
 
+REWIND_TIMES=3   #每日返回次数
+
 
 #云之讯短信验证
 YZX_SMS_API='https://open.ucpaas.com/ol/sms/sendsms'

@@ -1,6 +1,7 @@
 from django.utils.deprecation import MiddlewareMixin
 
 from common import errors
+
 from libs.http import render_json
 from user.models import User
 
@@ -17,13 +18,16 @@ class AuthMiddleware(MiddlewareMixin):
 
         if  not  uid:
             #未登录 返回错误码
-             return render_json(code=errors.LOGIN_REQUIRE)
+             return render_json(code=errors.LoginRequire.code)
         else:
             #已经登陆 取出user对象 并绑定到request对象
              request.user=User.objects.get(id=uid)
 
 
-
+class LogicErrorMiddleware(MiddlewareMixin):
+    def process_exception(self,request,exception):
+        if isinstance(exception,errors.LogicError):
+            return render_json(code=exception.code)
 
 
 
