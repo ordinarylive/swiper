@@ -49,6 +49,8 @@ def send_vcode(phonenum):
 def save_upload_file(filename,upload_file):
     #保存上传的文件到本地
     filepath =os.path.join(settings.BASE_DIR,settings.MEDIA_ROOT,filename)
+    filepath=filepath.replace('\\',"/")
+    print(filepath)
     with  open(filepath,'wb') as newfile:
         for  chunk in upload_file.chunks():
             newfile.write(chunk)

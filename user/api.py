@@ -7,12 +7,14 @@ from django.shortcuts import render
 
 from django.core.cache import cache
 
-
-
+import logging
+from urllib.parse import urljoin
 from common import errors
 from common import keys
+from libs.qncloud import upload_qncloud
+from swiper import config
 
-from user.logics import send_vcode
+from user.logics import send_vcode, save_upload_file
 from user.logics import is_phonenum
 from user.logics import save_avatar
 from libs.http import render_json
@@ -23,7 +25,7 @@ from libs.http import render_json
 from user.models import User
 from user.forms import ProfileForm
 
-
+inf_log = logging.getLogger('inf')
 
 def submit_phone(request):
     # 提交手机  发验证码
@@ -59,8 +61,13 @@ def submit_vcode(request):
 
     cached_vcode=cache.get(keys.VCODE%phone)
     if vcode == cached_vcode:
+    # if  True:
+
         user, _ = User.objects.get_or_create(phonenum=phone,
-                                             nickname=phone)
+                                nickname=phone)
+
+        inf_log.info(f'uid={user.id}')
+
         request.session['uid']=user.id
         return render_json(data=user.to_dict())
 
@@ -126,6 +133,14 @@ def upload_avatar(request):
     #分块传入medias
     #定期清理medias中的文件
 
+    #不用celery
+    # filename='Avatar-%s'%user.id
+    # filename,filepath=save_upload_file(filename,avatar)
+    # upload_qncloud(filename,filepath)
+    # user.avatar=urljoin(config.QN_HOST,filename)
+    # user.save()
+
+    #启用celery
     save_avatar.delay(user,avatar)
     return render_json()
 

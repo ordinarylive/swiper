@@ -1,9 +1,14 @@
+import  logging
+
 from django.utils.deprecation import MiddlewareMixin
 
 from common import errors
 
 from libs.http import render_json
 from user.models import User
+
+err_log=logging.getLogger('err')
+
 
 class AuthMiddleware(MiddlewareMixin):
     WHITE_LIST=[
@@ -27,6 +32,8 @@ class AuthMiddleware(MiddlewareMixin):
 class LogicErrorMiddleware(MiddlewareMixin):
     def process_exception(self,request,exception):
         if isinstance(exception,errors.LogicError):
+            err_log.error(exception)
+
             return render_json(code=exception.code)
 
 

@@ -7,6 +7,9 @@ from social import logics
 from social.models import Swiped
 from user.models import User
 from social.models import Friend
+from vip.logics import need_perm
+
+
 
 def rcmd_users(request):
     #获取推荐列表
@@ -27,7 +30,7 @@ def like(request):
     matched=logics.like_someone(request.user,sid)
     return render_json({'is_matched':matched})
 
-
+@need_perm('superlike')
 def superlike(request):
     sid=int(request.POST.get('sid'))
     matched = logics.superlike_someone(request.user, sid)
@@ -39,7 +42,7 @@ def dislike(request):
     Swiped.swipe(uid=request.user.id,sid=sid,flag='dislike')
     return render_json()
 
-
+@need_perm('rewind')
 def rewind(request):
     #返回接口   每天只允许反悔3次
     #返回操作 撤销上一次滑动操作
@@ -48,7 +51,7 @@ def rewind(request):
     return render_json()
 
 
-
+@need_perm('show_like_me')
 def show_liked_me(request):
     uid_list = Swiped.who_liked_me(request.user.id)
     users=User.objects.filter(id__in=uid_list)

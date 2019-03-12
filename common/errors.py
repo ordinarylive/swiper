@@ -33,6 +33,7 @@ ProfileErr=gen_logic_error('ProfileErr',1004)
 FlagErr=gen_logic_error('FlagErr',1005)
 RewindLimit=gen_logic_error('RewindLimit',1006)  #反悔次数达到上限
 
+NotHasPerm = gen_logic_error('NotHasPerm',1007) #权限限制 没有相应权限
 
 
 

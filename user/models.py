@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from libs.orm import ModelMixin
 
+from vip.models import Vip
 
 # Create your models here.
 class User(models.Model):
@@ -30,6 +31,8 @@ class User(models.Model):
     avatar=models.CharField(max_length=256,verbose_name='个人头像')
     location=models.CharField(max_length=16,choices=LOCATION,verbose_name='常居地')
 
+    vip_id=models.IntegerField(default=1,verbose_name='用户对应的会员')
+
     @property  #方法转换为属性
     def age(self):
         today=datetime.date.today()
@@ -43,6 +46,16 @@ class User(models.Model):
         if not hasattr(self,'_profile'):
             self._profile, _= Profile.objects.get_or_create(id=self.id)
         return self._profile
+
+
+    @property
+    def vip(self):
+        #用户的VIP
+        if not hasattr(self, '_vip'):
+            self._vip= Vip.objects.get(id=self.vip_id)
+        return self._vip
+
+
 
 
 
