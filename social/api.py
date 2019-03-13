@@ -23,24 +23,38 @@ def rcmd_users(request):
 
 
 
-
+@logics.add_swipe_score
 def like(request):
     # 喜欢
     sid=int(request.POST.get('sid'))
     matched=logics.like_someone(request.user,sid)
     return render_json({'is_matched':matched})
 
+
+
 @need_perm('superlike')
+@logics.add_swipe_score
 def superlike(request):
     sid=int(request.POST.get('sid'))
     matched = logics.superlike_someone(request.user, sid)
+
     return render_json({'is_matched': matched})
 
 
+
+
+
+
+
+@logics.add_swipe_score
 def dislike(request):
     sid=int(request.POST.get('sid'))
     Swiped.swipe(uid=request.user.id,sid=sid,flag='dislike')
     return render_json()
+
+
+
+
 
 @need_perm('rewind')
 def rewind(request):
@@ -76,10 +90,12 @@ def friend_info(request):
     return render_json()
 
 
+def top10(request):
+    rank_data=logics.get_top_n(10)
 
+    result = [[user.to_dict(),score] for user,score in rank_data]
 
-
-
+    return render_json(result)
 
 
 

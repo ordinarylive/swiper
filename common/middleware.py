@@ -26,7 +26,7 @@ class AuthMiddleware(MiddlewareMixin):
              return render_json(code=errors.LoginRequire.code)
         else:
             #已经登陆 取出user对象 并绑定到request对象
-             request.user=User.objects.get(id=uid)
+             request.user=User.get(id=uid)
 
 
 class LogicErrorMiddleware(MiddlewareMixin):

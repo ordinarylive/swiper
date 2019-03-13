@@ -2,6 +2,9 @@ import datetime
 import time
 from django.core.cache import cache
 
+from libs import rds
+
+
 from common import keys
 from swiper import config
 from common import errors
@@ -77,18 +80,60 @@ def rewind(user):
         return
 
 
+
     #检查上一次是否完成匹配
     if swiped.flag in ['like','superlike']:
         Friend.break_off(user.id,swiped.sid)
 
+    #撤销之前滑动的积分
+    sid = swiped.sid
+    score = config.SWIPE_SCORE.get(swiped.flag, 0)  # 根据函数名取出对应的积分
+    rds.zincrby(keys.HOT_RANK, -score, sid)  # 撤销之前积分
+
     swiped.delete()
 
 
+def add_swipe_score(view_func):
+    def warpper(request):
+        response=view_func(request)
+        #增加滑动积分
+        sid = int(request.POST.get('sid'))
+        score=config.SWIPE_SCORE.get(view_func.__name__,0) #根据函数名取出对应的积分
+        rds.zincrby(keys.HOT_RANK,score,sid) #增加积分
+        return response
+    return warpper
+
+
+def get_top_n(num):
+    # 获取热度排名 TopN  的数据
+    origin_data=rds.zrevrange(keys.HOT_RANK,0,num-1,withscores=True)
+    cleaned = [ [int(uid),int(score)]  for uid,score in origin_data ]
+
+    #思路1： 通过for 循环低效操作
+    # rank_data=[]
+    # for uid,score in cleaned:
+    #     user=User.get(id=uid)
+    #     rank_data.append([user,score])
+
+    #思路2：批量取出 一次操作
+    uid_list = [uid for uid,_ in cleaned]
+    print(uid_list)
+    users=User.objects.filter(id__in=uid_list)
+
+    users=sorted(users,key=lambda user: uid_list.index(user.id)) #按照uid_list的数序排序
+
+    rank_data=[]
+
+
+    score_list=[]
+    for  score in  cleaned:
+        score_list.append(score[1])
+    for user,score in zip(users,score_list):
+        rank_data.append([user,score])
 
 
 
-
-
+    return rank_data
 
 
 

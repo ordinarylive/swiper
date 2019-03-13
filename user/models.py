@@ -1,6 +1,6 @@
 import datetime
 from django.db import models
-from libs.orm import ModelMixin
+# from libs.orm import ModelMixin
 
 from vip.models import Vip
 
@@ -44,7 +44,7 @@ class User(models.Model):
     def profile(self):
         #用户个人资料
         if not hasattr(self,'_profile'):
-            self._profile, _= Profile.objects.get_or_create(id=self.id)
+            self._profile, _= Profile.get_or_create(id=self.id)
         return self._profile
 
 
@@ -52,7 +52,7 @@ class User(models.Model):
     def vip(self):
         #用户的VIP
         if not hasattr(self, '_vip'):
-            self._vip= Vip.objects.get(id=self.vip_id)
+            self._vip= Vip.get(id=self.vip_id)
         return self._vip
 
 
@@ -75,7 +75,8 @@ class User(models.Model):
 
 
 
-class Profile(models.Model,ModelMixin):
+# class Profile(models.Model,ModelMixin):
+class Profile(models.Model):
     SEX = (
         ('male', '男性'),
         ('female', '女性'),
@@ -100,6 +101,7 @@ class Profile(models.Model,ModelMixin):
     max_dating_age=models.IntegerField(default=50,verbose_name='最大交友年龄')
 
     dating_sex=models.CharField(max_length=8,choices=SEX,verbose_name='匹配的性别')
+
 
     vibration=models.BooleanField(default=True,verbose_name='开启震动')
     only_matche=models.BooleanField(default=True,verbose_name='不让为匹配的人看到我的相册')

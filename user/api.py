@@ -4,8 +4,13 @@ from django.shortcuts import render
 
 ## 接口规范
 
-
+#django的cache只适用于本机的缓存  创建全局的缓存要用redis
 from django.core.cache import cache
+#常见的缓存系统
+# 1.memcached  所有数据只保存在内存里  停机 进程关闭或者宕机 数据全部丢失  2.redis：性能高 支持数据持久化保存 程序启动 会将硬盘的数据全部加载到内存
+
+
+
 
 import logging
 from urllib.parse import urljoin
@@ -63,7 +68,7 @@ def submit_vcode(request):
     if vcode == cached_vcode:
     # if  True:
 
-        user, _ = User.objects.get_or_create(phonenum=phone,
+        user, _ = User.get_or_create(phonenum=phone,
                                 nickname=phone)
 
         inf_log.info(f'uid={user.id}')
@@ -106,7 +111,24 @@ process_response
 #获取个人资料接口
 def get_profile(request):
     user=request.user
-    profile_data=user.profile.to_dict('vibration','only_matche','auto_play')
+    #定义key 从缓存获取
+    key=keys.PROFILE%user.id
+
+    profile_data = cache.get(key)
+
+    print('get from cache:%s'%profile_data)
+
+
+    #如果缓存没有  从数据库获取
+    if profile_data is  None:
+        profile_data=user.profile.to_dict('vibration','only_matche','auto_play')
+        print(profile_data)
+        print('get from DB:%s' % profile_data)
+        cache.set(key,profile_data)
+        #需要更新缓存
+        print('set to cache')
+
+
     return render_json(profile_data)
 
 
@@ -117,6 +139,12 @@ def set_profile(request):
         profile=form.save(commit=False) # 未添加到数据库  但得到profile模型对象
         profile.id=request.user.id
         profile.save()
+        #数据发生变化后需要更新缓存
+
+        key = keys.PROFILE % request.user.id
+        profile_data = profile.to_dict('vibration', 'only_matche', 'auto_play')
+        cache.set(key,profile_data)
+
         return render_json()
     else:
         return render_json(form.errors,code=errors.ProfileErr.code)

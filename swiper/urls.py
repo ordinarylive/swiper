@@ -41,8 +41,12 @@ urlpatterns = [
 
     url(r'api/social/friends', social_api.friends),
     url(r'api/social/friend_info', social_api.friend_info),
+    url(r'api/social/top10', social_api.top10),
+
+
 
     url(r'api/vip/show_vip', vip_api.show_vip),
+
 
 
 ]
