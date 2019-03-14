@@ -14,6 +14,7 @@ class AuthMiddleware(MiddlewareMixin):
     WHITE_LIST=[
         '/api/user/submit_phone',
         '/api/user/submit_vcode',
+        '/api/vip/show_vip',
     ]
     def process_request(self,request):
         #当前url在白名单 最直接返回

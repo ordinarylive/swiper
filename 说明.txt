@@ -1,0 +1,164 @@
+分布式 数据库
+
+数据分片 分库 分表
+
+垂直分表  水平分表
+
+多线程查询
+
+
+
+分库
+
+
+拆分方式
+    按id查找  扩容方式简单   构建简单  扩容方便
+
+
+
+
+一致性哈希
+一致性缓存
+
+Snowflake  分布式id  基于存储  基于数据库分布 基于算法确保唯一
+
+ObjectId  机器码ID+进程ID+线程ID+时间戳+序号
+
+
+
+
+数据库集群
+
+    集群
+    1.主从复制
+         主机
+
+
+                binlog
+
+         丛集
+
+         从机
+
+
+
+    2.读写分离
+
+          主机写入               Mycat  Oracle  DB2   SQLSrver
+                                 代理服务器（写入 调用主服务器
+                                            读取 调用从服务器 ）
+
+
+
+
+          zookeeper 监听机制 提升服务器高可用
+          主机宕机  备用机替补
+
+
+
+
+
+          从机  读取主机
+          从机  读取主机
+          从机  读取主机
+
+
+
+性能测试  压力测试工具
+
+常用工具
+     ab(appache benchmark)  # https://www.cnblogs.com/crazycoderl/p/7799216.html
+     siege
+     webbench
+     wrk
+
+     echo 测试
+
+
+三次握手
+
+    1.client  ---SYN报文---》  server
+
+
+
+    2.client  《-- ACK--SYN--  server
+
+
+
+    3.client  ---  ACK报文 ---  》server
+
+断开连接 四次握手
+
+    1. client --> FIN  ---  server
+
+
+
+    2. client <-- ACK  ---  server
+
+
+
+    3. client <---  FIN  ---  server
+
+
+
+    4. client --- ACK > --- server
+
+
+Gunicorn  优秀的多进程模型的HTTP Server
+
+
+HTTP 建立在TCP 上的短连接 协议
+
+
+协程  gunicorn  gevent
+
+
+内网 10.x.x.x（企业）容纳255*255*255
+     127.x.x.x    本机
+     172.16.x.x   （路由器） 容量小
+     192.168.x.x   （家庭内网）
+
+
+HTTP Server 只处理Http 只处理
+            1.数据收发
+            2.建立，断开网络连接
+            3.接收，发送网络数据
+
+
+wsgi web Server Gateway interface
+    1.将请求报文封装成WSGI_Request 对象
+    2.将WSGI_Response 对象封装成 '响应报文'
+
+
+WebApp   Server
+
+HTTPServer 《---》 WSGI   《——————》 WebApp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

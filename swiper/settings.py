@@ -121,7 +121,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+
+    # 从机读取操作
+    'slave1':{},
+    'slave2':{},
+    'slave3':{},
 }
 
 
